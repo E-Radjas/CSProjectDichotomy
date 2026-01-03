@@ -64,28 +64,19 @@ Display of results: Output a formatted table showing the massive speedup factor:
 1 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 2 PERFORMANCE COMPARISON ( Average of 100 searches )
 3 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = 
-4 List Size ( N ) Linear Search ( s ) Binary Search ( s ) Speedup
-5 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
-6 10 000 0.000450 0.000003 150 x
-7 100 000 0.004200 0.000004 1050 x
-8 1 000 000 0.041000 0.000005 8200 x
-9 10 000 000 0.415000 0.000006 69000 x
+4 List Size ( N )       Linear Search ( s )             Binary Search ( s )             Speedup
+5 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+6 10 000                0.000450                        0.000003                        150 x
+7 100 000               0.004200                        0.000004                        1050 x
+8 1 000 000             0.041000                        0.000005                        8200 x
+9 10 000 000            0.415000                        0.000006                        69000 x
 10 = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 Observation: Notice how the Linear Search time grows by a factor of 10 each step, while the Binary
 Search time remains almost constant.
 """
 
-import timeit
 import random
-def linear_search(sorted_list, target):
-    for index, value in enumerate(sorted_list):
-        if value == target:
-            return index
-    return -1
-
 import timeit
-import random
-
 
 def linear_search(sorted_list, target):
     for index, value in enumerate(sorted_list):
@@ -95,37 +86,43 @@ def linear_search(sorted_list, target):
 
 
 def performance_comparison():
-    sizes = [10_000, 100_000, 1_000_000, 10_000_000]
-    results = []
+    N_values = [10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7]
+    num_searches = 100
 
-    for n in sizes:
-        data = list(range(n))
+    print("=" * 80)
+    print("PERFORMANCE COMPARISON ( Average of 100 searches )")
+    print("=" * 80)
+    print(f"{'List Size (N)':<20} {'Linear Search (s)':<25} {'Binary Search (s)':<25} {'Speedup'}")
+    print("-" * 80)
 
-        linear_avg = timeit.Timer(
-            "linear_search(data, random.randrange(n))",
-            globals={"linear_search": linear_search, "data": data, "random": random, "n": n},
-        ).timeit(number=100) / 100
+    for N in N_values:
+        sorted_list = list(range(N))
 
-        binary_avg = timeit.Timer(
-            "binary_search(data, random.randrange(n))",
-            globals={"binary_search": binary_search, "data": data, "random": random, "n": n},
-        ).timeit(number=100) / 100
+        total_linear_time = 0
+        total_binary_time = 0
 
-        results.append((n, linear_avg, binary_avg))
+        for _ in range(num_searches):
+            target = random.randint(0, N - 1)
 
-    return results
+            # Time linear search
+            start_time = timeit.default_timer()
+            linear_search(sorted_list, target)
+            total_linear_time += timeit.default_timer() - start_time
 
-def performance_comparison_table():
-    print(f"""{"="*110}
-    PERFORMANCE COMPARISON (Average of 100 searches)
-    {"="*110}
-    {'List Size (N)':<15}{'Linear Search (s)':>20}{'Binary Search (s)':>20}{'Speedup':>15}
-    {'-'*70}
-    {10000:>15,}{linear_search_average_104:>20.6f}{binary_search_average_104:>20.6f}{(linear_search_average_104/binary_search_average_104):>14.0f}x
-    {100000:>15,}{linear_search_average_105:>20.6f}{binary_search_average_105:>20.6f}{(linear_search_average_105/binary_search_average_105):>14.0f}x
-    {1000000:>15,}{linear_search_average_106:>20.6f}{binary_search_average_106:>20.6f}{(linear_search_average_106/binary_search_average_106):>14.0f}x
-    {10000000:>15,}{linear_search_average_107:>20.6f}{binary_search_average_107:>20.6f}{(linear_search_average_107/binary_search_average_107):>14.0f}x
-    {"="*110}
-    """)
+            # Time binary search
+            start_time = timeit.default_timer()
+            binary_search(sorted_list, target)
+            total_binary_time += timeit.default_timer() - start_time
 
+        avg_linear = total_linear_time / num_searches
+        avg_binary = total_binary_time / num_searches
+
+        speedup = (avg_linear / avg_binary) if avg_binary > 0 else float('inf')
+
+        print(f"{N:<20,d} {avg_linear:<25.6f} {avg_binary:<25.6f} {speedup:,.0f}x")
+
+    print("=" * 80)
+
+# Running the programs
+test_binary_search()
 performance_comparison()
