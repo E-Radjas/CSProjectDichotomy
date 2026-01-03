@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="Tasks 1 and 2 should be good, task 3 needs a bit of work (the table printing part especially).">
+    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="All tasks done, minor changes might occur">
+      <change afterPath="$PROJECT_DIR$/binary_search.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/tasks.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +52,7 @@
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "Python.binary search algorithm.executor": "Run",
+    "Python.binary_search.executor": "Run",
     "Python.main.executor": "Run",
     "Python.tasks.executor": "Run",
     "RunOnceActivity.MCP Project settings loaded": "true",
@@ -125,7 +126,7 @@
       <workItem from="1766932999961" duration="702000" />
       <workItem from="1766936334798" duration="4325000" />
       <workItem from="1767172471864" duration="6543000" />
-      <workItem from="1767277449547" duration="12607000" />
+      <workItem from="1767277449547" duration="14926000" />
     </task>
     <task id="LOCAL-00001" summary="code initial">
       <option name="closed" value="true" />
@@ -167,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767188733280</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="All tasks done, minor changes might occur">
+      <option name="closed" value="true" />
+      <created>1767451140152</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1767451140152</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -179,10 +188,13 @@
     <MESSAGE value="Renommé le fichier main --&gt; &quot;binary search algorithm&quot;, ce ficher servira à avoir une meilleure comprehension et visualisation, créé le fishier tasks pour mettre les exercises demandés par le projet." />
     <MESSAGE value="Task inputted" />
     <MESSAGE value="Tasks 1 and 2 should be good, task 3 needs a bit of work (the table printing part especially)." />
-    <option name="LAST_COMMIT_MESSAGE" value="Tasks 1 and 2 should be good, task 3 needs a bit of work (the table printing part especially)." />
+    <MESSAGE value="All tasks done, minor changes might occur" />
+    <option name="LAST_COMMIT_MESSAGE" value="All tasks done, minor changes might occur" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/CSProjectDichotomy$tasks.coverage" NAME="tasks Coverage Results" MODIFIED="1767347415550" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSProjectDichotomy$tasks.coverage" NAME="tasks Coverage Results" MODIFIED="1767451080693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSProjectDichotomy$binary_search.coverage" NAME="binary_search Coverage Results" MODIFIED="1767453934969" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSProjectDichotomy$binary_search_algorithm.coverage" NAME="binary search algorithm Coverage Results" MODIFIED="1767454042471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSProjectDichotomy$main.coverage" NAME="binary search algorithm Coverage Results" MODIFIED="1767188440114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="github-copilot-workspace">
