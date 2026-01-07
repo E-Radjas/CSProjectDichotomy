@@ -1,0 +1,365 @@
+\documentclass{beamer}
+\usepackage{amsfonts,amsmath,oldgerm}
+\usetheme{sintef}
+\usepackage{xeCJK}
+
+\newcommand{\testcolor}[1]{\colorbox{#1}{\textcolor{#1}{test}}~\texttt{#1}}
+
+\usefonttheme[onlymath]{serif}
+
+\titlebackground*{assets/Background}
+
+\newcommand{\hrefcol}[2]{\textcolor{cyan}{\href{#1}{#2}}}
+
+\title{Project 3: Search and Convergence}
+
+\subtitle{Theme: Binary Search}
+\author{By Elias Alaoui, Enzo Baurianne & Hassan Goulamaly}
+\date{Wednesday 14th of January 2026}
+
+\begin{document}
+\maketitle
+
+
+\section{Introduction}
+\footlinecolor{sintefyellow}
+
+\begin{frame}{Introduction}
+\framesubtitle{\empty}
+\begin{itemize}
+\item blabla
+\end{itemize}
+\end{frame}
+
+\section{Algorithmic approach}
+%-------------------------------------------------------
+
+\begin{frame}{The Principle of Dichotomy}
+Searching with Dichotomy is similar to looking for a word in a dictionary:
+\begin{itemize}
+\item Start in the middle
+\item Compare the letter you get with the one you want
+\item Open the right or left half in the middle
+\item Repeat until you find your word
+
+\end{itemize}
+\end{frame}
+%--------------------------------------------------------
+
+\begin{frame}[fragile, shrink]{Binary Search Implementation}
+    \begin{block}{Python Code}
+\begin{verbatim}
+def binary_search(sorted_list, target):
+    low = 0
+    high = len(sorted_list) - 1
+
+    while low <= high:
+        mid = (low + high) // 2
+        mid_value = sorted_list[mid]
+
+        if mid_value == target:
+            return mid
+        elif target > mid_value:
+            low = mid + 1
+        else:
+            high = mid - 1
+
+    return -1
+\end{verbatim}
+    \end{block}
+\end{frame}
+%--------------------------------------------------------
+
+\begin{frame}{Common Error: The "Off-by-One" Error}
+    \begin{block}{What is it?}
+        A logic error where an iterative algorithm iterates one time too many or too few. In Binary Search, this is the most common source of bugs.
+    \end{block}
+
+    \begin{itemize}
+        \item \textbf{The Infinite Loop Risk:} 
+        \begin{itemize}
+            \item Happening if we update bounds incorrectly (e.g., \texttt{low = mid}).
+            \item The search space never shrinks to zero.
+        \end{itemize}
+        
+        \item \textbf{The Missing Element:}
+        \begin{itemize}
+            \item Happening if we use \texttt{while low < high}.
+            \item The algorithm terminates before checking the final remaining element.
+        \end{itemize}
+        
+        \item \textbf{The Fix:} Always exclude \texttt{mid} from the new range:
+        \begin{itemize}
+            \item \texttt{high = mid - 1}
+            \item \texttt{low = mid + 1}
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}[fragile, shrink]{Validation of the algorithm}
+    \begin{block}{Python Code}
+\begin{verbatim}
+    def test_binary_search():
+    # Test empty list
+    assert binary_search([], 5) == -1
+
+    # Test target at the beginning
+    assert binary_search([1, 2, 3, 4, 5], 1) == 0
+
+    # Test target at the end
+    assert binary_search([1, 2, 3, 4, 5], 5) == 4
+
+    # Test target absent
+    assert binary_search([1, 2, 3, 4, 5], 6) == -1
+
+    # Test list with duplicate values
+    assert binary_search([1, 2, 2, 2, 3], 2) in [1, 2, 3]  # could return any index of the duplicates
+
+    print("All tests passed.")
+\end{verbatim}
+    \end{block}    
+\end{frame}
+%-----------------------------------------------------
+
+\section{Mathematical study}
+
+\begin{frame}[fragile]{Proof of Correctness (Loop Invariant)}
+\begin{itemize}[<+->]
+\item A typical slide has bulleted lists
+\item These can be uncovered in sequence
+\end{itemize}
+\begin{block}{Code for a Page with an Itemised List}<+->
+\begin{verbatim}
+\begin{frame}{Writing a Simple Slide}
+  \framesubtitle{It's really easy!}
+  \begin{itemize}[<+->]
+    \item A typical slide has bulleted lists
+    \item These can be uncovered in sequence
+  \end{itemize}\end{frame}
+\end{verbatim}
+\end{block}
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}[fragile]{Complexity Analysis}
+\begin{itemize}
+\item You can select the white or \textit{maincolor} \textbf{slide style} \emph{in the 
+preamble} with \verb|\themecolor{white}| (default) or \verb|\themecolor{main}|
+      \begin{itemize}
+      \item You should \emph{not} change these within the document: Beamer does 
+      not like it
+      \item If you \emph{really} must, you may have to add 
+      \verb|\usebeamercolor[fg]{normal text}| in the slide
+      \end{itemize}
+\item You can change the \textbf{footline colour} with 
+\verb|\footlinecolor{color}|
+      \begin{itemize}
+      \item Place the command \emph{before} a new \verb|frame|
+      \item There are four ``official'' colors: 
+      \testcolor{maincolor}, \testcolor{sintefyellow}, 
+      \testcolor{sintefgreen}, \testcolor{sintefdarkgreen}
+      \item Default is no footline; you can restore it with 
+      \verb|\footlinecolor{}|
+      \item Others may work, but no guarantees!
+      \item Should \emph{not} be used with the \verb|maincolor| theme!
+      \end{itemize}
+\end{itemize}
+\end{frame}
+%-----------------------------------------------------------------
+
+\section{Performance}
+
+\begin{frame}[fragile]{"Big Data" example}
+\begin{columns}
+\begin{column}{0.3\textwidth}
+\begin{block}{Standard Blocks}
+These have a color coordinated with the footline (and grey in the blue theme)
+\begin{verbatim}
+\begin{block}{title}
+content...
+\end{block}
+\end{verbatim}
+\end{block}
+\end{column}
+\begin{column}{0.7\textwidth}
+\begin{colorblock}[black]{sinteflightgreen}{Colour Blocks}
+Similar to the ones on the left, but you pick the colour. Text will be white by 
+default, but you may set it with an optional argument.
+\small
+\begin{verbatim}
+\begin{colorblock}[black]{sinteflightgreen}{title}
+content...
+\end{colorblock}
+\end{verbatim}
+\end{colorblock}
+The ``official'' colours of colour blocks are: \testcolor{sinteflilla}, 
+\testcolor{maincolor}, \testcolor{sintefdarkgreen}, and 
+\testcolor{sintefyellow}.
+\end{column}
+\end{columns}
+\end{frame}
+%-----------------------------------------------------------
+
+\footlinecolor{}
+\begin{frame}{Experimental Results}
+    \begin{columns}
+        % Left Column: The Table
+        \begin{column}{0.55\textwidth}
+            \centering
+            \footnotesize % Slightly smaller text to fit the table
+            \setlength{\tabcolsep}{4pt} % Adjust column spacing
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \textbf{N} & \textbf{Linear (s)} & \textbf{Binary (s)} & \textbf{Speedup} \\ 
+                \hline
+                $10^4$ & 0.000450 & 0.000003 & 150x \\ 
+                $10^5$ & 0.004200 & 0.000004 & 1,050x \\ 
+                $10^6$ & 0.041000 & 0.000005 & 8,200x \\ 
+                $10^7$ & 0.415000 & 0.000006 & \textbf{69,000x} \\ 
+                \hline
+            \end{tabular}
+            \vspace{0.2cm}
+            \caption{\textit{Performance comparison (avg. of 100 searches)}}
+        \end{column}
+
+        % Right Column: The Analysis
+        \begin{column}{0.45\textwidth}
+            \begin{block}{Observations}
+            \small
+            \begin{itemize}
+                \item \textbf{Linear Explosion:} 
+                Linear search time grows proportionally with $N$ ($O(N)$).
+                
+                \item \textbf{Binary Stability:}
+                Binary search time remains \textbf{almost constant} ($O(\log N)$). 
+                
+                \item \textbf{The "Filtering" Effect:}
+                Instead of sifting through every item, we discard half the data at every step.
+                
+                \item \textbf{Analogy:} Like folding a piece of paper; it becomes impossible to fold (or search) very quickly, no matter the size.
+            \end{itemize}
+            \end{block}
+        \end{column}
+    \end{columns}
+\end{frame}
+%--------------------------------------------------------------
+
+\begin{frame}[fragile]{Performance Comparison Code}
+    \begin{colorblock}[white]{sintefyellow}{Python Code}
+    
+    \scriptsize 
+\begin{verbatim}
+def linear_search(sorted_list, target):
+    for index, value in enumerate(sorted_list):
+        if value == target:
+            return index
+    return -1
+
+def performance_comparison():
+    N_values = [10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7]
+    num_searches = 100
+
+    print("=" * 80)
+    print("PERFORMANCE COMPARISON ( Average of 100 searches )")
+    print("=" * 80)
+    # Split this long line so it fits in the block
+    print(f"{'List Size (N)':<20} {'Linear Search (s)':<25} "
+          f"{'Binary Search (s)':<25} {'Speedup'}")
+    print("-" * 80)
+\end{verbatim}
+    \end{colorblock}
+\end{frame}
+%------------------------------------------------------
+
+\begin{frame}[fragile]{Performance Comparison Code}
+    \begin{colorblock}[white]{sintefyellow}{Python Code}
+    \scriptsize 
+\begin{verbatim}
+    for N in N_values:
+        sorted_list = list(range(N))
+        total_linear_time = 0
+        total_binary_time = 0
+        
+        for _ in range(num_searches):
+            target = random.randint(0, N - 1)
+
+            # Time linear search
+            start_time = timeit.default_timer()
+            linear_search(sorted_list, target)
+            total_linear_time += timeit.default_timer() - start_time
+
+\end{verbatim}
+    \end{colorblock}
+\end{frame}
+%------------------------------------------------
+
+\begin{frame}[fragile]{Performance Comparison Code}
+    \begin{colorblock}[white]{sintefyellow}{Python Code}
+    \scriptsize 
+\begin{verbatim}
+            # Time binary search
+            start_time = timeit.default_timer()
+            binary_search(sorted_list, target)
+            total_binary_time += timeit.default_timer() - start_time
+
+        avg_linear = total_linear_time / num_searches
+        avg_binary = total_binary_time / num_searches
+
+        speedup = (avg_linear / avg_binary) if avg_binary > 0 else float('inf')
+
+        print(f"{N:<20,d} {avg_linear:<25.6f} {avg_binary:<25.6f} {speedup:,.0f}x")
+
+    print("=" * 80)
+\end{verbatim}
+    \end{colorblock}
+\end{frame}
+%------------------------------------------------
+
+\section{Conclusion}
+
+\begin{frame}[fragile]{Conclusion}
+\begin{columns}
+\begin{column}{0.7\textwidth}
+Adding images works like in normal \LaTeX:
+\begin{block}{Code for Adding Images}
+\begin{verbatim}
+\usepackage{graphicx}
+% ...
+\includegraphics[width=\textwidth]
+{assets/logosuad1}
+\end{verbatim}
+\end{block}
+\end{column}
+\begin{column}{0.3\textwidth}
+\includegraphics[width=\textwidth]
+{assets/logosuad1}
+\end{column}
+\end{columns}
+\end{frame}
+
+
+\definecolor{sorbonneblue}{RGB}{8, 50, 136}
+\begin{frame}[plain]
+    \tikzpicture[remember picture,overlay]
+        \node[at=(current page.center)] {
+            \includegraphics[width=\paperwidth,height=\paperheight]{assets/circles}
+        };
+    \endtikzpicture
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \fill[sorbonneblue] (current page.center) rectangle (current page.south east);
+        \node[anchor=center, text=white, align=center, xshift=4cm, yshift=-2.3cm] at (current page.center) {
+            {\Huge \textbf{Thank you !}}\\[0.5cm]
+            {\large Questions?}
+        };
+    \end{tikzpicture}
+
+    \begin{tikzpicture}[remember picture,overlay]
+        \node[anchor=south west, xshift=0.5cm, yshift=0.5cm] at (current page.south west) {
+            \includegraphics[height=1.5cm]{assets/logo_RGB.png}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\end{document}
