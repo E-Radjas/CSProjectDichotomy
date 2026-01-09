@@ -5,6 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/CSProjectDichotomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CSProjectDichotomy.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/binary_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/binary_search.py" afterDir="false" />
     </list>
@@ -32,7 +34,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/E-Radjas/CSProjectDichotomy.git&quot;,
-    &quot;accountId&quot;: &quot;32244151-45f2-475d-8621-184408d85c7b&quot;
+    &quot;accountId&quot;: &quot;fe02a564-772b-4b1f-975d-9fa895774c21&quot;
   }
 }</component>
   <component name="McpProjectServerCommands">
@@ -62,6 +64,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;ai.playground.ignore.import.keys.banner.in.settings&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultAutoModeForALLUsers.v1&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
@@ -154,6 +157,9 @@
       <workItem from="1767277449547" duration="16418000" />
       <workItem from="1767598654554" duration="8595000" />
       <workItem from="1767794281538" duration="849000" />
+      <workItem from="1767941164127" duration="304000" />
+      <workItem from="1767942349909" duration="1150000" />
+      <workItem from="1767944113366" duration="1294000" />
     </task>
     <task id="LOCAL-00001" summary="code initial">
       <option name="closed" value="true" />

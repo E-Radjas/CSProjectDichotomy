@@ -61,7 +61,8 @@ def performance_comparison():
     print("=" * 115)
     # Updated headers to include Steps
     print(
-        f"{'List Size (N)':<15} {'Lin. Time(s)':<15} {'Lin. Steps':<15} {'Bin. Time(s)':<15} {'Bin. Steps':<15} {'Speedup'}")
+        f"{'List Size (N)':<15} {'Lin. Time(s)':<15} {'Lin. Steps':<15}"
+        f" {'Bin. Time(s)':<15} {'Bin. Steps':<15} {'Speedup'}")
     print("-" * 115)
 
     for N in N_values:
@@ -93,11 +94,16 @@ def performance_comparison():
         avg_linear_steps = total_linear_steps / num_searches
         avg_binary_steps = total_binary_steps / num_searches
 
-        speedup = (avg_linear_time / avg_binary_time) if avg_binary_time > 0 else float('inf')
+        if avg_binary_time > 0:
+            speedup = avg_linear_time / avg_binary_time
+        else:
+            speedup = float('inf')
 
         # Print Row
         print(
-            f"{N:<15,d} {avg_linear_time:<15.6f} {avg_linear_steps:<15.0f} {avg_binary_time:<15.6f} {avg_binary_steps:<15.0f} {speedup:,.0f}x")
+f"{N:<15,d} {avg_linear_time:<15.6f} "
+                        f"{avg_linear_steps:<15.0f} {avg_binary_time:<15.6f} "
+                        f"{avg_binary_steps:<15.0f} {speedup:,.0f}x")
 
     print("=" * 115)
 
