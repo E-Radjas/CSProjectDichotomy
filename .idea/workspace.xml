@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/CSProjectDichotomy.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CSProjectDichotomy.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="Improved reeadability">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/binary_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/binary_search.py" afterDir="false" />
     </list>
@@ -159,7 +157,7 @@
       <workItem from="1767794281538" duration="849000" />
       <workItem from="1767941164127" duration="304000" />
       <workItem from="1767942349909" duration="1150000" />
-      <workItem from="1767944113366" duration="1294000" />
+      <workItem from="1767944113366" duration="2465000" />
     </task>
     <task id="LOCAL-00001" summary="code initial">
       <option name="closed" value="true" />
@@ -217,7 +215,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767454874706</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Improved reeadability">
+      <option name="closed" value="true" />
+      <created>1767946029862</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1767946029862</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,12 +237,13 @@
     <MESSAGE value="Tasks 1 and 2 should be good, task 3 needs a bit of work (the table printing part especially)." />
     <MESSAGE value="All tasks done, minor changes might occur" />
     <MESSAGE value="adanced on making it good for turning in" />
-    <option name="LAST_COMMIT_MESSAGE" value="adanced on making it good for turning in" />
+    <MESSAGE value="Improved reeadability" />
+    <option name="LAST_COMMIT_MESSAGE" value="Improved reeadability" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CSProjectDichotomy$tasks.coverage" NAME="tasks Coverage Results" MODIFIED="1767451080693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSProjectDichotomy$binary_search_algorithm.coverage" NAME="binary search algorithm Coverage Results" MODIFIED="1767454042471" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/CSProjectDichotomy$binary_search.coverage" NAME="binary_search Coverage Results" MODIFIED="1767794890941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/CSProjectDichotomy$binary_search.coverage" NAME="binary_search Coverage Results" MODIFIED="1767946140549" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/CSProjectDichotomy$main.coverage" NAME="binary search algorithm Coverage Results" MODIFIED="1767188440114" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="github-copilot-workspace">

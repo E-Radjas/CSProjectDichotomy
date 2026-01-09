@@ -1,29 +1,59 @@
+"""
+Binary Search vs Linear Search Performance Comparison Module.
+
+This module demonstrates the efficiency difference between binary search (O(log n))
+and linear search (O(n)) algorithms through benchmarking.
+"""
 import random
 import timeit
 
 
 def binary_search(sorted_list, target):
+    """
+    Perform binary search on a sorted list to find a target value.
+
+    Uses the divide-and-conquer approach by repeatedly halving the search space,
+    resulting in O(log n) time complexity.
+
+    Args:
+        sorted_list: A list sorted in ascending order.
+        target: The value to search for.
+
+    Returns:
+        A tuple of (index, steps) where:
+            - index: Position of target in list, or -1 if not found.
+            - steps: Number of iterations performed.
+    """
     low = 0
     high = len(sorted_list) - 1
     steps = 0
 
     while low <= high:
+        # Use integer division to find the midpoint, avoiding overflow
         mid = (low + high) // 2
         mid_value = sorted_list[mid]
         steps += 1
 
         if mid_value == target:
-            return mid, steps  # Return index and step count
+            return mid, steps
         elif target > mid_value:
+            # Target is in the upper half; discard lower half
             low = mid + 1
         else:
+            # Target is in the lower half; discard upper half
             high = mid - 1
 
     return -1, steps
 
 
 def test_binary_search():
-    # Note: We now access [0] because the function returns (index, steps)
+    """
+    Run unit tests to verify binary_search correctness.
+
+    Tests cover edge cases: empty list, target at boundaries,
+    absent target, and duplicate values.
+    """
+    # Access [0] because binary_search returns (index, steps) tuple
 
     # Test empty list
     assert binary_search([], 5)[0] == -1
@@ -37,13 +67,27 @@ def test_binary_search():
     # Test target absent
     assert binary_search([1, 2, 3, 4, 5], 6)[0] == -1
 
-    # Test list with duplicate values
+    # With duplicates, any valid index containing the target is acceptable
     assert binary_search([1, 2, 2, 2, 3], 2)[0] in [1, 2, 3]
 
     print("All tests passed.")
 
 
 def linear_search(sorted_list, target):
+    """
+    Perform linear search by checking each element sequentially.
+
+    This O(n) algorithm serves as a baseline for comparing against binary search.
+
+    Args:
+        sorted_list: A list to search through (sorting not required).
+        target: The value to search for.
+
+    Returns:
+        A tuple of (index, steps) where:
+            - index: Position of target in list, or -1 if not found.
+            - steps: Number of elements examined.
+    """
     steps = 0
     for index, value in enumerate(sorted_list):
         steps += 1
@@ -53,20 +97,25 @@ def linear_search(sorted_list, target):
 
 
 def performance_comparison():
-    N_values = [10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7]
+    """
+    Benchmark binary search vs linear search across varying list sizes.
+
+    Runs multiple searches for each list size and reports average
+    execution time, step count, and relative speedup.
+    """
+    list_sizes = [10 ** 4, 10 ** 5, 10 ** 6, 10 ** 7]
     num_searches = 100
 
     print("=" * 115)
     print("PERFORMANCE COMPARISON (Average of 100 searches)")
     print("=" * 115)
-    # Updated headers to include Steps
     print(
         f"{'List Size (N)':<15} {'Lin. Time(s)':<15} {'Lin. Steps':<15}"
         f" {'Bin. Time(s)':<15} {'Bin. Steps':<15} {'Speedup'}")
     print("-" * 115)
 
-    for N in N_values:
-        sorted_list = list(range(N))
+    for size in list_sizes:
+        sorted_list = list(range(size))
 
         total_linear_time = 0
         total_binary_time = 0
@@ -74,7 +123,7 @@ def performance_comparison():
         total_binary_steps = 0
 
         for _ in range(num_searches):
-            target = random.randint(0, N - 1)
+            target = random.randint(0, size - 1)
 
             # Time Linear Search
             start_time = timeit.default_timer()
@@ -94,6 +143,7 @@ def performance_comparison():
         avg_linear_steps = total_linear_steps / num_searches
         avg_binary_steps = total_binary_steps / num_searches
 
+        # Avoid division by zero for extremely fast operations
         if avg_binary_time > 0:
             speedup = avg_linear_time / avg_binary_time
         else:
@@ -101,12 +151,23 @@ def performance_comparison():
 
         # Print Row
         print(
-f"{N:<15,d} {avg_linear_time:<15.6f} "
+f"{size:<15,d} {avg_linear_time:<15.6f} "
                         f"{avg_linear_steps:<15.0f} {avg_binary_time:<15.6f} "
                         f"{avg_binary_steps:<15.0f} {speedup:,.0f}x")
 
     print("=" * 115)
 
+# Output example:
+# ===================================================================================================================
+# PERFORMANCE COMPARISON (Average of 100 searches)
+# ===================================================================================================================
+# List Size (N)   Lin. Time(s)    Lin. Steps      Bin. Time(s)    Bin. Steps      Speedup
+# -------------------------------------------------------------------------------------------------------------------
+# 10,000          0.000437        5110            0.000003        12              145x
+# 100,000         0.004102        47954           0.000005        16              815x
+# 1,000,000       0.037405        478756          0.000008        19              4,663x
+# 10,000,000      0.368110        4737077         0.000011        22              33,501x
+# ===================================================================================================================
 
 # Running the functions:
 test_binary_search()
