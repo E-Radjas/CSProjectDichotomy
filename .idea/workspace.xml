@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="Improved readability 2: electric boogaloo&#10;Added lots of comments to detail the way the functions work.">
-      <change afterPath="$PROJECT_DIR$/generate_tikz.py" afterDir="false" />
+    <list default="true" id="7608b333-56f4-4ca4-bdc7-bcfa92ca281f" name="Changes" comment="Added the generate_tikz function, commented it, renamed a few variables for readability.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/binary_search.py" beforeDir="false" afterPath="$PROJECT_DIR$/binary_search.py" afterDir="false" />
     </list>
@@ -164,7 +163,7 @@
       <workItem from="1767794281538" duration="849000" />
       <workItem from="1767941164127" duration="304000" />
       <workItem from="1767942349909" duration="1150000" />
-      <workItem from="1767944113366" duration="5473000" />
+      <workItem from="1767944113366" duration="6264000" />
     </task>
     <task id="LOCAL-00001" summary="code initial">
       <option name="closed" value="true" />
@@ -238,7 +237,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767947256357</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Added the generate_tikz function, commented it, renamed a few variables for readability.">
+      <option name="closed" value="true" />
+      <created>1767954130672</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1767954130672</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -254,7 +261,8 @@
     <MESSAGE value="adanced on making it good for turning in" />
     <MESSAGE value="Improved reeadability" />
     <MESSAGE value="Improved readability 2: electric boogaloo&#10;Added lots of comments to detail the way the functions work." />
-    <option name="LAST_COMMIT_MESSAGE" value="Improved readability 2: electric boogaloo&#10;Added lots of comments to detail the way the functions work." />
+    <MESSAGE value="Added the generate_tikz function, commented it, renamed a few variables for readability." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added the generate_tikz function, commented it, renamed a few variables for readability." />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/CSProjectDichotomy$tasks.coverage" NAME="tasks Coverage Results" MODIFIED="1767451080693" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
